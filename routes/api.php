@@ -45,8 +45,8 @@ Route::get('/posts/profile', [PostsController::class, 'ShowPostProfile'])->name(
 Route::post('/posts', [PostsController::class, 'CreatePost'])->name('post.create');
 Route::put('/posts/{post}', [PostsController::class, 'UpdatePost'])->name('post.update');
 Route::delete('/posts/{post}', [PostsController::class, 'DeletePost'])->name('post.delete');
-Route::get('posts/count-like/{post}', [PostController::class, 'CountLikeInPost'])->name('like.count');
-Route::get('posts/count-cmt/{post}', [PostController::class, 'CountCommentInPost'])->name('comment.count');
+// Route::get('posts/count-like/{post}', [PostController::class, 'CountLikeInPost'])->name('like.count');
+// Route::get('posts/count-cmt/{post}', [PostController::class, 'CountCommentInPost'])->name('comment.count');
 //blog
 Route::prefix('blogs')->group(function () {
     Route::post('/', [BlogController::class, 'CreateBlog'])->name('blog.create');
@@ -60,9 +60,9 @@ Route::prefix('blogs')->group(function () {
     Route::get('/detail/{blog}', [BlogController::class, 'detailBlog'])->name('blog.detailBlog');
 });
 //qa
-Route::post('/quests', [QasController::class, 'CreateQa'])->name('qa.create');
-Route::put('/quests/{qa}', [QasController::class, 'UpdateQa'])->name('qa.update');
-Route::delete('/quests/{qa}', [QasController::class, 'DeleteqQ'])->name('qa.delete');
+// Route::post('/quests', [QasController::class, 'CreateQa'])->name('qa.create');
+// Route::put('/quests/{qa}', [QasController::class, 'UpdateQa'])->name('qa.update');
+// Route::delete('/quests/{qa}', [QasController::class, 'DeleteqQ'])->name('qa.delete');
 //Like --post
 Route::get('/like/{post}', [LikeController::class, 'FetchLikeInPost'])->name('post.like');
 Route::post('/like/{post}', [LikeController::class, 'LikePost'])->name('like.post');
@@ -73,16 +73,16 @@ Route::post('/like/{blog}', [LikeController::class, 'LikeBlog'])->name('like.blo
 Route::get('/like/{qa}', [LikeController::class, 'FetchLikeInQa'])->name('qa.like');
 Route::post('/like/{qa}', [LikeController::class, 'LikeQa'])->name('like.qa');
 //Comment --post
-Route::get('/comment/{post}', [CommentController::class, 'FetchCommentInPost'])->name('post.show');
-Route::post('/comment/{post}', [CommentController::class, 'AddCommentToPost'])->name('post.comment');
-//Comment --blog
-Route::get('/comment/{blog}', [CommentController::class, 'FetchCommentInBlog'])->name('blog.show');
-Route::post('/comment/{blog}', [CommentController::class, 'AddCommentToBlog'])->name('blog.comment');
-//Comment --Q&a
-Route::get('/comment/{qa}', [CommentController::class, 'FetchCommentInQa'])->name('qa.show');
-Route::post('/comment/{qa}', [CommentController::class, 'AddCommentToQa'])->name('qa.comment');
+// Route::get('/comment/{post}', [CommentController::class, 'FetchCommentInPost'])->name('post.show');
+// Route::post('/comment/{post}', [CommentController::class, 'AddCommentToPost'])->name('post.comment');
+// //Comment --blog
+// Route::get('/comment/{blog}', [CommentController::class, 'FetchCommentInBlog'])->name('blog.show');
+// Route::post('/comment/{blog}', [CommentController::class, 'AddCommentToBlog'])->name('blog.comment');
+// //Comment --Q&a
+// Route::get('/comment/{qa}', [CommentController::class, 'FetchCommentInQa'])->name('qa.show');
+// Route::post('/comment/{qa}', [CommentController::class, 'AddCommentToQa'])->name('qa.comment');
 //friend --relationship
 Route::post('/send-request/{recipient}',[FriendController::class,'SendFriendRequest'])->name('friend.send');
 Route::post('/comfirm-request/{sender}',[FriendController::class,'ConfirmFriendRequest'])->name('friend.confirm');
-Route::put('/update-relation/{friend}',[CommentController::class,'UpdateFriendshipType'])->name('friend.update');
+// Route::put('/update-relation/{friend}',[CommentController::class,'UpdateFriendshipType'])->name('friend.update');
 Route::get('/friend',[FriendController::class,'FetchAllFriend'])->name('friend.list');

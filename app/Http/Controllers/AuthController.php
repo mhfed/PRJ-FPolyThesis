@@ -15,8 +15,37 @@ use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Socialite\Facades\Socialite;
 
+ /**
+ * @OA\Info(
+ *     version="1.0",
+ *     title="Example for response examples value"
+ * )
+ * 
+ * @OA\PathItem(path="/api")
+ */
+
+ 
 class AuthController extends Controller
 {
+     /**
+     * @OA\Put(
+     *     path="/users/{id}",
+     *     summary="Updates a user",
+     *     @OA\Parameter(
+     *         description="Parameter with mutliple examples",
+     *         in="path",
+     *         name="id",
+     *         required=true,
+     *         @OA\Schema(type="string"),
+     *         @OA\Examples(example="int", value="1", summary="An int value."),
+     *         @OA\Examples(example="uuid", value="0006faf6-7a61-426c-9034-579f2cfcfa83", summary="An UUID value."),
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="OK"
+     *     )
+     * )
+     */
     public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [
